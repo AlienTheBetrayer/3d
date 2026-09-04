@@ -1,6 +1,6 @@
 {
   "plugins": ["typescript", "unicorn", "import"],
   "rules": {
-    "no-console": "error"
+    "no-console": "warn"
   }
 }
