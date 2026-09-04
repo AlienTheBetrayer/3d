@@ -1,6 +1,7 @@
 {
   "oxc.configPath": "packages/oxlint-config/.oxlintrc.json",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
 
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
