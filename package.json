@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm format:check && pnpm lint && turbo run dev",
+    "fdev": "pnpm format && pnpm dev",
     "build": "pnpm format && pnpm lint && turbo run build",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
