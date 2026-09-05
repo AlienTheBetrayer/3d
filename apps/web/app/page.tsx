@@ -1,5 +1,6 @@
 import Image, { type ImageProps } from 'next/image';
 import styles from './page.module.css';
+import { Button } from '@/shared/ui';
 
 type Props = Omit<ImageProps, 'src'> & {
   srcLight: string;
@@ -21,6 +22,32 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <ul className="w-full **:w-full">
+          <li>
+            <Button>Primary</Button>
+          </li>
+
+          <li>
+            <Button variant="destructive">Destructive</Button>
+          </li>
+
+          <li>
+            <Button variant="ghost">Ghost</Button>
+          </li>
+
+          <li>
+            <Button variant="link">Link</Button>
+          </li>
+
+          <li>
+            <Button variant="secondary">Secondary</Button>
+          </li>
+
+          <li>
+            <Button variant="outline">Outline</Button>
+          </li>
+        </ul>
+
         <ThemeImage
           className={styles.logo}
           srcLight="turborepo-dark.svg"
