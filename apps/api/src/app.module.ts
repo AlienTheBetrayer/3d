@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller.js';
+import { RootModule } from './modules/root/root.module.js';
+import { AppConfigModule } from './modules/config/config.module.js';
+
+const imports = [RootModule, AppConfigModule];
 
 @Module({
-  controllers: [AppController],
+  imports,
 })
 export class AppModule {}
