@@ -20,3 +20,5 @@ export * from './switch';
 export * from './table';
 export * from './textarea';
 export * from './tooltip';
+export * from './providers/MasterProvider';
+export * from './providers/ThemeProvider';
