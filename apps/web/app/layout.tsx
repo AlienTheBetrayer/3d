@@ -1,6 +1,12 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import './globals.css';
+import '../shared/styles/globals.css';
+import { Geist } from 'next/font/google';
+
+import { cn } from 'cn';
+import { MasterProvider } from '@/shared/ui';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -22,8 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+    <html lang="en" className={cn('font-sans', geist.variable)} suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <MasterProvider>{children}</MasterProvider>
+      </body>
     </html>
   );
 }
