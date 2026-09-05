@@ -1,0 +1,23 @@
+generator client {
+  provider               = "prisma-client-js"
+  generatedFileExtension = "ts"
+  importFileExtension    = "js"
+  moduleFormat           = "esm"
+}
+
+generator zod {
+  provider = "prisma-zod-generator"
+  output   = "../../../packages/api-schemas/src"
+  config   = "./prisma-zod.config.json"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model test {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  text       String?
+}

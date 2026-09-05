@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "generatorVersion": "0.0.1",
+  "generatedAt": "2026-09-05T22:53:13.899Z",
+  "outputPath": "C:\\Users\\user\\Documents\\GitHub\\3d\\packages\\api-schemas\\src",
+  "files": [
+    "schemas\\enums\\TransactionIsolationLevel.schema.ts",
+    "schemas\\enums\\TestScalarFieldEnum.schema.ts",
+    "schemas\\enums\\SortOrder.schema.ts",
+    "schemas\\enums\\QueryMode.schema.ts",
+    "schemas\\enums\\NullsOrder.schema.ts"
+  ],
+  "directories": [
+    "schemas\\enums"
+  ],
+  "singleFileMode": false
+}
