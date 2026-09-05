@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import '../shared/styles/globals.css';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { TooltipProvider } from '@/shared/ui';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -27,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn('font-sans', geist.variable)}>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <TooltipProvider>{children}</TooltipProvider>
+      </body>
     </html>
   );
 }
