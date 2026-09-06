@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "oxlint -c ../../packages/oxlint-config/.oxlintrc.json",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "test": "vitest run --config ./vitest.config.ts",
+    "test:watch": "vitest --config ./vitest.config.ts"
   },
   "dependencies": {
     "@repo/api-schemas": "workspace:*",
@@ -36,6 +38,8 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.5",
     "eslint": "10.9.1",
-    "typescript": "7.0.2"
+    "jsdom": "^30.0.1",
+    "typescript": "7.0.2",
+    "vitest": "^5.0.0"
   }
 }
