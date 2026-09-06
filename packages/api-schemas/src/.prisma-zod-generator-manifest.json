@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "generatorVersion": "0.0.1",
-  "generatedAt": "2026-09-05T22:53:13.899Z",
+  "generatedAt": "2026-09-05T23:57:16.264Z",
   "outputPath": "C:\\Users\\user\\Documents\\GitHub\\3d\\packages\\api-schemas\\src",
   "files": [
     "schemas\\enums\\TransactionIsolationLevel.schema.ts",
