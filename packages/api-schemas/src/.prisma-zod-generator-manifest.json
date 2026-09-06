@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "generatorVersion": "0.0.1",
-  "generatedAt": "2026-09-05T22:53:13.899Z",
-  "outputPath": "C:\\Users\\user\\Documents\\GitHub\\3d\\packages\\api-schemas\\src",
+  "generatedAt": "2026-09-05T23:17:55.306Z",
+  "outputPath": "C:\\Users\\user\\Desktop\\3d\\packages\\api-schemas\\src",
   "files": [
     "schemas\\enums\\TransactionIsolationLevel.schema.ts",
     "schemas\\enums\\TestScalarFieldEnum.schema.ts",
