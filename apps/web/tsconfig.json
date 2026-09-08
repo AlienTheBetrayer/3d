@@ -9,12 +9,10 @@
     "strictNullChecks": true,
     "paths": {
       "@/*": ["./*"],
-      "@repo/api-schemas": ["../../packages/api-schemas/src/index.ts"]
+      "@repo/db": ["../../packages/db/src/index.ts"]
     }
   },
-  "references": [
-    { "path": "../../packages/api-schemas" }
-  ],
+
   "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", "next.config.js", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

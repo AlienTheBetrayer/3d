@@ -1,13 +1,9 @@
-import { Controller, Get } from "@nestjs/common";
-import { RootService } from "./root.service.js";
-import { PrismaService } from "../prisma/prisma.service.js";
+import { Controller, Get } from '@nestjs/common';
+import { RootService } from './root.service.js';
 
 @Controller()
 export class RootController {
-  constructor(
-    private readonly rootService: RootService,
-    private readonly prismaService: PrismaService,
-  ) {}
+  constructor(private readonly rootService: RootService) {}
 
   @Get()
   async health() {
