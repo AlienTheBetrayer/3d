@@ -1,4 +1,4 @@
-import { relations } from 'drizzle-orm';
+import { InferSelectModel, relations } from 'drizzle-orm';
 import { foreignKey, jsonb, pgEnum, pgTable, primaryKey, text, timestamp } from 'drizzle-orm/pg-core';
 
 const timestamptz = (name: string) => timestamp(name, { withTimezone: true, precision: 6, mode: 'date' });
@@ -23,6 +23,8 @@ export const users = pgTable('users', {
   emoji: text('emoji'),
   status: text('status'),
 });
+
+export type Users = InferSelectModel<typeof users>;
 
 export const auth_sessions = pgTable(
   'auth_sessions',
