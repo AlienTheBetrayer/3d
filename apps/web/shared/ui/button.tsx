@@ -41,7 +41,10 @@ const buttonVariants = cva(
   },
 );
 
-export type ButtonProps = React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>;
+export type ButtonProps = Omit<ButtonPrimitive.Props, "className"> &
+  VariantProps<typeof buttonVariants> & {
+    className?: string;
+  };
 
 function Button({ className, variant = "default", size = "default", onPointerDown, ...props }: ButtonProps) {
   return (
