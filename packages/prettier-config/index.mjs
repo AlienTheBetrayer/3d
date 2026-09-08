@@ -1,6 +1,6 @@
 export default {
   // quotes
-  singleQuote: true,
+  singleQuote: false,
   jsxSingleQuote: false,
   quoteProps: 'as-needed',
 

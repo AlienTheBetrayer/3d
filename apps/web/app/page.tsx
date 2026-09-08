@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Button, Popover, PopoverContent, PopoverTrigger } from '@/shared/ui';
-import { EmojiPicker, EmojiPickerContent, EmojiPickerFooter, EmojiPickerSearch } from '@/shared/ui/emoji-picker';
-import { useState } from 'react';
+import { Button, Popover, PopoverContent, PopoverTrigger } from "@/shared/ui";
+import { EmojiPicker, EmojiPickerContent, EmojiPickerFooter, EmojiPickerSearch } from "@/shared/ui/emoji-picker";
+import { useState } from "react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
