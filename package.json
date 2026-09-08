@@ -12,7 +12,11 @@
     "test:watch": "pnpm --filter @repo/api test:watch",
     "test:cov": "pnpm --filter @repo/api test:cov",
     "test:e2e": "pnpm --filter @repo/api test:e2e",
-    "prisma": "pnpm --filter @repo/api prisma:generate"
+    "db:generate": "pnpm --filter @repo/db db:generate",
+    "db:migrate": "pnpm --filter @repo/db db:migrate",
+    "db:push": "pnpm --filter @repo/db db:push",
+    "db:pull": "pnpm --filter @repo/db db:pull",
+    "db:studio": "pnpm --filter @repo/db db:studio"
   },
   "devDependencies": {
     "@repo/prettier-config": "workspace:*",

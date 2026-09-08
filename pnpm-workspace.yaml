@@ -2,10 +2,9 @@ packages:
   - 'apps/*'
   - 'packages/*'
 allowBuilds:
-  '@prisma/engines': true
   '@swc/core': true
-  esbuild: false
+  esbuild: true
   msgpackr-extract: false
-  prisma: true
-  prisma-zod-generator: true
   workerd: false
+ignoredOptionalDependencies:
+  - '@prisma/client'

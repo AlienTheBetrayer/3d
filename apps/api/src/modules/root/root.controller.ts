@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
 import { RootService } from './root.service.js';
-import { PrismaService } from '../prisma/prisma.service.js';
+import { DrizzleService } from '../drizzle/drizzle.service.js';
 
 @Controller()
 export class RootController {
   constructor(
     private readonly rootService: RootService,
-    private readonly prismaService: PrismaService,
+    private readonly drizzleService: DrizzleService,
   ) {}
 
   @Get()
