@@ -1,4 +1,4 @@
-import * as z from 'zod';
+import * as z from "zod";
 
 export const connectionsSchema = z.object({
   id: z.string(),

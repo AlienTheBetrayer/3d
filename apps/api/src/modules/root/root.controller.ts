@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { RootService } from './root.service.js';
-import { PrismaService } from '../prisma/prisma.service.js';
+import { Controller, Get } from "@nestjs/common";
+import { RootService } from "./root.service.js";
+import { PrismaService } from "../prisma/prisma.service.js";
 
 @Controller()
 export class RootController {
