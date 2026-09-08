@@ -2,8 +2,8 @@
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     "module": "NodeNext",
-    "types": ["vitest/globals", "node"],
     "moduleResolution": "NodeNext",
+    "types": ["vitest/globals", "node"],
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,

@@ -1,14 +1,21 @@
 {
   "version": "1.0",
   "generatorVersion": "0.0.1",
-  "generatedAt": "2026-09-05T23:57:16.264Z",
+  "generatedAt": "2026-09-08T13:30:24.974Z",
   "outputPath": "C:\\Users\\user\\Documents\\GitHub\\3d\\packages\\api-schemas\\src",
   "files": [
     "schemas\\enums\\TransactionIsolationLevel.schema.ts",
-    "schemas\\enums\\TestScalarFieldEnum.schema.ts",
+    "schemas\\enums\\AuthSessionsScalarFieldEnum.schema.ts",
+    "schemas\\enums\\ConnectionsScalarFieldEnum.schema.ts",
+    "schemas\\enums\\ConnectionsGroupScalarFieldEnum.schema.ts",
+    "schemas\\enums\\UsersScalarFieldEnum.schema.ts",
+    "schemas\\enums\\VerificationCodesScalarFieldEnum.schema.ts",
     "schemas\\enums\\SortOrder.schema.ts",
+    "schemas\\enums\\NullableJsonNullValueInput.schema.ts",
     "schemas\\enums\\QueryMode.schema.ts",
-    "schemas\\enums\\NullsOrder.schema.ts"
+    "schemas\\enums\\JsonNullValueFilter.schema.ts",
+    "schemas\\enums\\NullsOrder.schema.ts",
+    "schemas\\enums\\verification_code_type.schema.ts"
   ],
   "directories": [
     "schemas\\enums"

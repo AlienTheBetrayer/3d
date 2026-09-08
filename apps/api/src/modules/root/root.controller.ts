@@ -11,7 +11,6 @@ export class RootController {
 
   @Get()
   async health() {
-    await this.prismaService.test.create({ data: { text: Math.random().toString() } });
     return this.rootService.health();
   }
 }
