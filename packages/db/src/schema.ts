@@ -53,6 +53,8 @@ export const auth_sessions = pgTable(
   ],
 );
 
+export type AuthSessions = InferSelectModel<typeof auth_sessions>;
+
 export const connections_group = pgTable(
   'connections_group',
   {
@@ -75,6 +77,8 @@ export const connections_group = pgTable(
       .onDelete('cascade'),
   ],
 );
+
+export type ConnectionsGroup = InferSelectModel<typeof connections_group>;
 
 export const connections = pgTable(
   'connections',
@@ -103,6 +107,8 @@ export const connections = pgTable(
   ],
 );
 
+export type Connections = InferSelectModel<typeof connections>;
+
 export const verification_codes = pgTable(
   'verification_codes',
   {
@@ -115,6 +121,8 @@ export const verification_codes = pgTable(
   },
   (t) => [primaryKey({ columns: [t.id], name: 'confirmation_codes_pkey' })],
 );
+
+export type VerificationCodes = InferSelectModel<typeof verification_codes>;
 
 export const usersRelations = relations(users, ({ many }) => ({
   auth_sessions: many(auth_sessions),
