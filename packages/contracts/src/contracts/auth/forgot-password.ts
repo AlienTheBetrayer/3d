@@ -1,6 +1,6 @@
-import { Users } from '@repo/db';
-import { login } from './login.js';
-import z from 'zod';
+import { Users } from "@repo/db";
+import { login } from "./login.js";
+import z from "zod";
 
 export const forgotPassword = login;
 

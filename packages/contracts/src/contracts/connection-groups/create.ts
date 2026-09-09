@@ -1,6 +1,6 @@
-import z from 'zod';
-import { shared } from '../../index.js';
-import { Connections, ConnectionsGroup } from '@repo/db';
+import z from "zod";
+import { shared } from "../../index.js";
+import { Connections, ConnectionsGroup } from "@repo/db";
 
 export const create = z.object({
   groupId: z.nanoid().optional(),

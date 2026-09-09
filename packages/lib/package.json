@@ -1,5 +1,5 @@
 {
-  "name": "@repo/contracts",
+  "name": "@repo/lib",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -17,8 +17,7 @@
   },
   "dependencies": {
     "@repo/db": "workspace:*",
-    "drizzle-orm": "^0.45.2",
-    "drizzle-zod": "^0.8.3",
+    "nanoid": "^6.0.1",
     "zod": "^4.0.0"
   },
   "devDependencies": {

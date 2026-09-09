@@ -1,5 +1,5 @@
-import { AuthSessions } from '@repo/db';
-import z from 'zod';
+import { AuthSessions } from "@repo/db";
+import z from "zod";
 
 export const logout = z.void();
 

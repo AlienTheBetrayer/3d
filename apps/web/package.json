@@ -17,6 +17,7 @@
     "@repo/contracts": "workspace:*",
     "@tailwindcss/postcss": "^4.3.3",
     "@repo/db": "workspace:*",
+    "@repo/lib": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "cmdk": "^1.1.1",
     "cn": "^0.2.5",

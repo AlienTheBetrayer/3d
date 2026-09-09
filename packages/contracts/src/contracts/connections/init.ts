@@ -1,7 +1,7 @@
-import z from 'zod';
+import z from "zod";
 
 export const init = z.object({
-  service: z.enum(['github', 'google', 'discord', 'telegram']),
+  service: z.enum(["github", "google", "discord", "telegram"]),
   groupId: z.nanoid(),
 });
 

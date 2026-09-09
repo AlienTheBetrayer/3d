@@ -1,5 +1,5 @@
-import { Connections, ConnectionsGroup, Users } from '@repo/db';
-import z from 'zod';
+import { Connections, ConnectionsGroup, Users } from "@repo/db";
+import z from "zod";
 
 export const get = z.void();
 

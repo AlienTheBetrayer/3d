@@ -5,7 +5,7 @@ import { Command as CommandPrimitive } from "cmdk";
 import { cn } from "cn";
 
 import { SearchIcon, CheckIcon } from "lucide-react";
-import { DialogHeader, DialogContent, Dialog, DialogDescription, DialogTitle } from "@/shared/ui/dialog";
+import { DialogHeader, DialogContent, Dialog, DialogTitle, DialogDescription } from "@/shared/ui/dialog";
 import { InputGroup, InputGroupAddon } from "@/shared/ui/input-group";
 
 function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) {

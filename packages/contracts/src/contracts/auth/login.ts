@@ -1,6 +1,6 @@
-import z from 'zod';
-import { shared } from '../../index.js';
-import { AuthSessions, Users } from '@repo/db';
+import z from "zod";
+import { shared } from "../../index.js";
+import { AuthSessions, Users } from "@repo/db";
 
 export const login = z.object({
   email: z.email(),

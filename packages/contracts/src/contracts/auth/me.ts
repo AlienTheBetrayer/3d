@@ -1,5 +1,5 @@
-import { AuthSessions, Users } from '@repo/db';
-import z from 'zod';
+import { AuthSessions, Users } from "@repo/db";
+import z from "zod";
 
 export const me = z.void();
 

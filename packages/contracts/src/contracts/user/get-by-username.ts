@@ -1,5 +1,5 @@
-import z from 'zod';
-import { user } from '../index.js';
+import z from "zod";
+import { user } from "../index.js";
 
 export const getByUsername = z.object({
   username: z.string(),

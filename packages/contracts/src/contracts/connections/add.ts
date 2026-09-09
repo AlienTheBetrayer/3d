@@ -1,5 +1,5 @@
-import { Connections, Users } from '@repo/db';
-import z from 'zod';
+import { Connections, Users } from "@repo/db";
+import z from "zod";
 
 export const add = z.object({
   groupId: z.nanoid(),

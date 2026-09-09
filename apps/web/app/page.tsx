@@ -1,11 +1,22 @@
 "use client";
 
-import { Button, Popover, PopoverContent, PopoverTrigger } from "@/shared/ui";
-import { EmojiPicker, EmojiPickerContent, EmojiPickerFooter, EmojiPickerSearch } from "@/shared/ui/emoji-picker";
+import {
+  Button,
+  EmojiPickerContent,
+  EmojiPickerFooter,
+  EmojiPickerSearch,
+  Popover,
+  PopoverContent,
+  EmojiPicker,
+  PopoverTrigger,
+} from "@/shared/ui";
+import { id } from "@repo/lib";
 import { useState } from "react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  console.log(id.create());
 
   return (
     <main className="w-screen h-screen grid place-items-center">

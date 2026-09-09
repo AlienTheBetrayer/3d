@@ -1,6 +1,6 @@
-import { ConnectionsGroup } from '@repo/db';
-import z from 'zod';
-import { shared } from '../../index.js';
+import { ConnectionsGroup } from "@repo/db";
+import z from "zod";
+import { shared } from "../../index.js";
 
 export const edit = z.object({
   groupId: z.nanoid(),
