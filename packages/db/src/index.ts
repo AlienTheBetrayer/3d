@@ -1,1 +1,1 @@
-export * from "./schema.js";
+export * as db from "./core/index.js";

@@ -25,7 +25,9 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "drizzle-orm": "^0.45.2"
+    "drizzle-orm": "^0.45.2",
+    "drizzle-zod": "^0.8.3",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@repo/oxlint-config": "workspace:*",

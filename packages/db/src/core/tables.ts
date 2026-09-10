@@ -1,14 +1,6 @@
-import { InferSelectModel, relations } from "drizzle-orm";
-import { foreignKey, jsonb, pgEnum, pgTable, primaryKey, text, timestamp } from "drizzle-orm/pg-core";
-
-const timestamptz = (name: string) => timestamp(name, { withTimezone: true, precision: 6, mode: "date" });
-
-export const verification_code_type = pgEnum("verification_code_type", [
-  "login",
-  "signup",
-  "forgot_password",
-  "owner_connect",
-]);
+import { foreignKey, jsonb, pgTable, primaryKey, text } from "drizzle-orm/pg-core";
+import { verification_code_type } from "./enums.js";
+import { timestamptz } from "./misc.js";
 
 export const users = pgTable("users", {
   id: text("id").primaryKey(),
@@ -23,8 +15,6 @@ export const users = pgTable("users", {
   emoji: text("emoji"),
   status: text("status"),
 });
-
-export type Users = InferSelectModel<typeof users>;
 
 export const auth_sessions = pgTable(
   "auth_sessions",
@@ -53,8 +43,6 @@ export const auth_sessions = pgTable(
   ],
 );
 
-export type AuthSessions = InferSelectModel<typeof auth_sessions>;
-
 export const connections_group = pgTable(
   "connections_group",
   {
@@ -77,8 +65,6 @@ export const connections_group = pgTable(
       .onDelete("cascade"),
   ],
 );
-
-export type ConnectionsGroup = InferSelectModel<typeof connections_group>;
 
 export const connections = pgTable(
   "connections",
@@ -107,8 +93,6 @@ export const connections = pgTable(
   ],
 );
 
-export type Connections = InferSelectModel<typeof connections>;
-
 export const verification_codes = pgTable(
   "verification_codes",
   {
@@ -121,28 +105,3 @@ export const verification_codes = pgTable(
   },
   (t) => [primaryKey({ columns: [t.id], name: "confirmation_codes_pkey" })],
 );
-
-export type VerificationCodes = InferSelectModel<typeof verification_codes>;
-
-export const usersRelations = relations(users, ({ many }) => ({
-  auth_sessions: many(auth_sessions),
-  connections: many(connections),
-  connections_group: many(connections_group),
-}));
-
-export const authSessionsRelations = relations(auth_sessions, ({ one }) => ({
-  users: one(users, { fields: [auth_sessions.user_id], references: [users.id] }),
-}));
-
-export const connectionsGroupRelations = relations(connections_group, ({ one, many }) => ({
-  users: one(users, { fields: [connections_group.owner_user_id], references: [users.id] }),
-  connections: many(connections),
-}));
-
-export const connectionsRelations = relations(connections, ({ one }) => ({
-  connections_group: one(connections_group, {
-    fields: [connections.group_id],
-    references: [connections_group.id],
-  }),
-  users: one(users, { fields: [connections.user_id], references: [users.id] }),
-}));
