@@ -1,4 +1,4 @@
-import { AuthSessions, Users } from "@repo/db";
+import { db } from "@repo/db";
 import z from "zod";
 
 export const me = z.void();
@@ -6,6 +6,6 @@ export const me = z.void();
 export type Me = z.infer<typeof me>;
 
 export type MeResponse = {
-  user: Users;
-  session: AuthSessions;
+  user: db.Users;
+  session: db.AuthSessions;
 };

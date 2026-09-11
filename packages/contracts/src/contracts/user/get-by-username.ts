@@ -5,6 +5,6 @@ export const getByUsername = z.object({
   username: z.string(),
 });
 
-export type getByUsername = z.infer<typeof getByUsername>;
+export type GetByUsername = z.infer<typeof getByUsername>;
 
-export type GetByUsernameResponse = user.GetRseponse;
+export type GetByUsernameResponse = user.GetResponse;

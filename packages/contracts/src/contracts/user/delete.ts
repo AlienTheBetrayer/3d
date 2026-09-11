@@ -1,4 +1,4 @@
-import { Users } from "@repo/db";
+import { db } from "@repo/db";
 import z from "zod";
 
 export const delete_ = z.object({
@@ -8,5 +8,5 @@ export const delete_ = z.object({
 export type Delete = z.infer<typeof delete_>;
 
 export type DeleteResponse = {
-  user: Users;
+  user: db.Users;
 };

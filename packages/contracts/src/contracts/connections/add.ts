@@ -1,7 +1,8 @@
-import { Connections, Users } from "@repo/db";
+import { db } from "@repo/db";
 import z from "zod";
+import { contracts } from "../../index.js";
 
-export const add = z.object({
+export const add = contracts.auth.login.extend({
   groupId: z.nanoid(),
   connectionId: z.nanoid().optional(),
 });
@@ -9,6 +10,6 @@ export const add = z.object({
 export type Add = z.infer<typeof add>;
 
 export type AddResponse = {
-  connection: Connections;
-  user: Users;
+  connection: db.Connections;
+  user: db.Users;
 };

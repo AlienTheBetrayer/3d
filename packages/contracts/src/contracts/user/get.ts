@@ -1,4 +1,4 @@
-import { Users } from "@repo/db";
+import { db } from "@repo/db";
 import z from "zod";
 
 export const get = z.object({
@@ -7,6 +7,6 @@ export const get = z.object({
 
 export type Get = z.infer<typeof get>;
 
-export type GetRseponse = {
-  user: Users | null;
+export type GetResponse = {
+  user: db.Users | null;
 };

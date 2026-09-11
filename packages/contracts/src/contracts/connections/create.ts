@@ -1,4 +1,4 @@
-import { Connections } from "@repo/db";
+import { db } from "@repo/db";
 import z from "zod";
 
 export const create = z.object({
@@ -10,5 +10,5 @@ export const create = z.object({
 export type Create = z.infer<typeof create>;
 
 export type CreateResponse = {
-  connection: Connections;
+  connection: db.Connections;
 };

@@ -1,9 +1,9 @@
-import { verification_code_type } from "@repo/db";
+import { db } from "@repo/db";
 import z from "zod";
 
 export const code = z.object({
   email: z.email(),
-  type: verification_code_type,
+  type: z.enum(db.verification_code_type.enumValues),
   action: z.enum(["login", "connect"]).optional(),
 });
 

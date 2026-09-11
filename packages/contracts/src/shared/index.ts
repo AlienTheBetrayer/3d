@@ -1,2 +1,2 @@
-export * as auth from "./auth.js";
-export * as connectionGroups from "./connection-groups.js";
+export * from "./auth.js";
+export * from "./connection-groups.js";

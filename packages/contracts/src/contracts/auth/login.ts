@@ -1,11 +1,11 @@
+import { db } from "@repo/db";
 import z from "zod";
-import { shared } from "../../index.js";
-import { AuthSessions, Users } from "@repo/db";
+import { passwordSchema, codeSchema } from "../../shared/auth.js";
 
 export const login = z.object({
   email: z.email(),
-  password: shared.auth.passwordSchema,
-  code: shared.auth.codeSchema,
+  password: passwordSchema,
+  code: codeSchema,
 });
 
 export type Login = z.infer<typeof login>;
@@ -13,6 +13,6 @@ export type Login = z.infer<typeof login>;
 export type LoginResponse = {
   accessToken: string;
   refreshToken: string;
-  session: AuthSessions;
-  user: Users;
+  session: db.AuthSessions;
+  user: db.Users;
 };
