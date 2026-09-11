@@ -9,7 +9,7 @@
     "incremental": true,
     "declarationMap": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../forms"],
   "paths": {
     "@repo/db": ["../../packages/db/src/index.ts"]
   }
