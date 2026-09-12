@@ -1,0 +1,38 @@
+name: fluxbound-dev
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: fluxbound-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_DEV_USER:-fluxbound}
+      POSTGRES_PASSWORD: ${POSTGRES_DEV_PASSWORD:-dev-data}
+      POSTGRES_DB: ${POSTGRES_DEV_DB:-fluxbound-dev}
+    ports:
+      - "${POSTGRES_DEV_PORT:-5434}:5432"
+    volumes:
+      - ./dev/postgres/data:/var/lib/postgresql/data
+
+  storage:
+    image: chrislusf/seaweedfs:4.45
+    container_name: fluxbound-storage-dev
+    restart: unless-stopped
+    entrypoint: [ "/bin/sh", "/docker-entrypoint-scripts/entrypoint.sh" ]
+    command:
+      - mini
+      - -dir=/data
+      - -s3.config=/config/s3.json
+      - -bucket=${S3_DEV_BUCKET:-fluxbound-dev}
+    ports:
+      - "${S3_DEV_PORT:-8334}:8333"
+      - "${S3_DEV_UI_PORT:-8889}:8888"
+      - "${S3_DEV_ADMIN_PORT:-23647}:23646"
+    environment:
+      S3_DEV_ACCESS_KEY: ${S3_DEV_ACCESS_KEY:-dev-access-key}
+      S3_DEV_SECRET_KEY: ${S3_DEV_SECRET_KEY:-dev-secret-key}
+      S3_DEV_BUCKET: ${S3_DEV_BUCKET:-fluxbound-dev}
+    volumes:
+      - ./dev/storage/entrypoint.sh:/docker-entrypoint-scripts/entrypoint.sh:ro
+      - ./dev/storage/config.json.template:/config/s3.json.template:ro
+      - ./dev/storage/data:/data
