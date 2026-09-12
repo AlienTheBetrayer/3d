@@ -45,7 +45,7 @@ export class AuthController {
     @Body({ schema: contracts.auth.signup }) body: contracts.auth.Signup,
   ): Promise<contracts.auth.SignupResponse> {
     const user = await this.authService.signup(body);
-    return { user } ;
+    return { user };
   }
 
   /**

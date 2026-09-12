@@ -1,5 +1,5 @@
-import { Mock } from 'vitest';
-import { AuthCoreService } from '../auth.service.js';
+import { Mock } from "vitest";
+import { AuthCoreService } from "../auth.service.js";
 
 type InitMocks = {
   authCoreService: AuthCoreService;

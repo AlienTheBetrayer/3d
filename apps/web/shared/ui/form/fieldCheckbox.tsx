@@ -1,8 +1,15 @@
-import { FieldValues, useFormContext, Controller, Path } from 'react-hook-form';
-import { Checkbox } from '../checkbox';
-import { Field, FieldError, FieldLabel } from '../field';
+import { FieldValues, useFormContext, Controller, Path } from "react-hook-form";
+import type { DefaultForm } from "@repo/forms/auth";
+import { Checkbox } from "../checkbox";
+import { Field, FieldError, FieldLabel } from "../field";
 
-export default function FormCheckbox<T extends FieldValues>({ name, label }: { name: Path<T>; label?: string }) {
+export default function FormCheckbox<T extends FieldValues = DefaultForm>({
+  name,
+  label,
+}: {
+  name: Path<T>;
+  label?: string;
+}) {
   const { control } = useFormContext<T>();
 
   return (

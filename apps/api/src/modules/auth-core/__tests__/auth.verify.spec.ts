@@ -1,14 +1,14 @@
-import bcrypt from 'bcryptjs';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { init } from './init.js';
+import bcrypt from "bcryptjs";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { init } from "./init.js";
 
-vi.mock('bcryptjs', () => ({
+vi.mock("bcryptjs", () => ({
   default: {
     compare: vi.fn(),
   },
 }));
 
-describe('AuthCoreService', () => {
+describe("AuthCoreService", () => {
   const { authCoreService, db, jwtService } = init();
 
   beforeEach(() => {
@@ -17,13 +17,13 @@ describe('AuthCoreService', () => {
 
   const request = {
     cookies: {
-      accessToken: 'accessToken',
-      refreshToken: 'refreshToken',
+      accessToken: "accessToken",
+      refreshToken: "refreshToken",
     },
   };
 
-  describe('happy paths', () => {
-    it('should verify the code if refresh token is found, jwt service validated, auth session found and hash validated', async () => {
+  describe("happy paths", () => {
+    it("should verify the code if refresh token is found, jwt service validated, auth session found and hash validated", async () => {
       // arrange
       jwtService.verify.mockResolvedValue({} as never);
       db.authSessions.findFirst.mockResolvedValue({});
@@ -37,8 +37,8 @@ describe('AuthCoreService', () => {
     });
   });
 
-  describe('sad paths', () => {
-    it('should throw if jwt token is not verified', async () => {
+  describe("sad paths", () => {
+    it("should throw if jwt token is not verified", async () => {
       // arrange
       jwtService.verify.mockImplementation(() => {
         throw new Error();
@@ -53,11 +53,11 @@ describe('AuthCoreService', () => {
       expect(bcrypt.compare).not.toHaveBeenCalled();
     });
 
-    it('should throw if auth session is not found', async () => {
+    it("should throw if auth session is not found", async () => {
       // arrange
       jwtService.verify.mockReturnValue({
-        sessionId: 'sessionId',
-        userId: 'userId',
+        sessionId: "sessionId",
+        userId: "userId",
       });
       db.authSessions.findFirst.mockResolvedValue(null);
 
@@ -69,16 +69,16 @@ describe('AuthCoreService', () => {
       expect(bcrypt.compare).not.toHaveBeenCalled();
     });
 
-    it('should throw if hash does not match', async () => {
+    it("should throw if hash does not match", async () => {
       // arrange
       jwtService.verify.mockImplementation(({ key }) => {
-        if (key === 'ACCESS_TOKEN_SECRET') {
+        if (key === "ACCESS_TOKEN_SECRET") {
           throw new Error();
         }
 
         return {
-          sessionId: 'sessionId',
-          userId: 'userId',
+          sessionId: "sessionId",
+          userId: "userId",
         };
       });
       db.authSessions.findFirst.mockResolvedValue({});

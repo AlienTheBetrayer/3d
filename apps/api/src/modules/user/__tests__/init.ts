@@ -1,5 +1,5 @@
-import { Mock } from 'vitest';
-import { UserService } from '../user.service.js';
+import { Mock } from "vitest";
+import { UserService } from "../user.service.js";
 
 type InitMocks = {
   userService: UserService;

@@ -1,6 +1,6 @@
-import { db } from '@repo/db';
-import z from 'zod';
-import { login } from '../auth/login.js';
+import { db } from "@repo/db";
+import z from "zod";
+import { login } from "../auth/login.js";
 
 export const add = login.extend({
   groupId: z.nanoid(),

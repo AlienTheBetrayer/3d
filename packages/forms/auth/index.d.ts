@@ -1,2 +1,2 @@
-export * from './default-form.js';
+export * from "./default-form.js";
 //# sourceMappingURL=index.d.ts.map

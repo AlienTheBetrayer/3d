@@ -1,15 +1,15 @@
-import { contracts } from '@repo/contracts';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { init } from './init.js';
+import { contracts } from "@repo/contracts";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { init } from "./init.js";
 
-vi.mock('@dicebear/core', () => ({
+vi.mock("@dicebear/core", () => ({
   Avatar: class {
     toDataUri() {}
   },
   Style: class {},
 }));
 
-describe('UserService', () => {
+describe("UserService", () => {
   const { userService, db } = init();
 
   beforeEach(() => {
@@ -17,12 +17,12 @@ describe('UserService', () => {
   });
 
   const dto: contracts.user.Create = {
-    email: 'email',
-    password: 'password',
+    email: "email",
+    password: "password",
   };
 
-  describe('happy path', () => {
-    it('should create the user if the email is not taken', async () => {
+  describe("happy path", () => {
+    it("should create the user if the email is not taken", async () => {
       // arrange
       db.users.findFirst.mockResolvedValue(null);
 
@@ -35,8 +35,8 @@ describe('UserService', () => {
     });
   });
 
-  describe('sad path', () => {
-    it('should throw if the email is taken', async () => {
+  describe("sad path", () => {
+    it("should throw if the email is taken", async () => {
       // arrange
       db.users.findFirst.mockResolvedValue({});
 

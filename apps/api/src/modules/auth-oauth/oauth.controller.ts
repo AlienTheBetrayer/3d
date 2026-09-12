@@ -1,6 +1,6 @@
 import { Controller, Get, Res, UseGuards } from "@nestjs/common";
 import { type Response } from "express";
-import { AuthContext,type  AuthContextType } from "../auth-core/decorators/authcontext.decorator.js";
+import { AuthContext, type AuthContextType } from "../auth-core/decorators/authcontext.decorator.js";
 import { NotAuthenticatedGuard } from "../auth-core/guards/notauthenticated.guard.js";
 import { AuthenticationFailureRedirect } from "../auth-core/metadata/auth.metadata.js";
 import { NotConnectedGuard } from "../connections/guards/notconnected.guard.js";
