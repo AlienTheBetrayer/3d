@@ -1,5 +1,5 @@
 import z from 'zod';
-import { contracts, shared } from '../contracts/src/index.js';
+import { contracts, shared } from '../../contracts/src/index.js';
 
 export const defaultForm = useZodForm(contracts.auth.login.request, {
   defaultValues: {

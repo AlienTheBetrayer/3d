@@ -5,11 +5,12 @@
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
     "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
     "composite": true,
-    "incremental": true,
-    "declarationMap": true
+    "incremental": true
   },
-  "include": ["src/**/*", "../forms"],
+  "include": ["src/**/*"],
   "paths": {
     "@repo/db": ["../../packages/db/src/index.ts"]
   }

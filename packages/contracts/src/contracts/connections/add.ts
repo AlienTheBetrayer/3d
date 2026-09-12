@@ -1,8 +1,8 @@
-import { db } from "@repo/db";
-import z from "zod";
-import { contracts } from "../../index.js";
+import { db } from '@repo/db';
+import z from 'zod';
+import { login } from '../auth/login.js';
 
-export const add = contracts.auth.login.extend({
+export const add = login.extend({
   groupId: z.nanoid(),
   connectionId: z.nanoid().optional(),
 });

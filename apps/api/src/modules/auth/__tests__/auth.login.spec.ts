@@ -1,15 +1,15 @@
-import bcrypt from "bcryptjs";
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { AuthContextType } from "../../auth-core/decorators/authcontext.decorator.js";
-import { init } from "./init.js";
+import bcrypt from 'bcryptjs';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { AuthContextType } from '../../auth-core/decorators/authcontext.decorator.js';
+import { init } from './init.js';
 
-vi.mock("bcryptjs", () => ({
+vi.mock('bcryptjs', () => ({
   default: {
     compare: vi.fn(),
   },
 }));
 
-describe("AuthService", () => {
+describe('AuthService', () => {
   // setup
   const { authService, verifyService, db, jwtService } = init();
 
@@ -19,32 +19,32 @@ describe("AuthService", () => {
 
   // init variables
   const dto = {
-    email: "email",
-    password: "password",
-    code: "code",
+    email: 'email',
+    password: 'password',
+    code: 'code',
   };
 
   const authCtx: AuthContextType = {
-    ip: "ip",
-    userAgent: "userAgent",
+    ip: 'ip',
+    userAgent: 'userAgent',
   };
 
   const user = {
-    id: "user-id",
-    password: "password",
+    id: 'user-id',
+    password: 'password',
   };
 
   const ret = {
-    accessToken: "a",
-    refreshToken: "r",
+    accessToken: 'a',
+    refreshToken: 'r',
     session: {},
   };
 
-  describe("happy paths", () => {
-    it("should login if the code and password are valid", async () => {
+  describe('happy paths', () => {
+    it('should login if the code and password are valid', async () => {
       // arrange
       verifyService.validateCode.mockResolvedValue({});
-      db.select.mockResolvedValue(user);
+      db.selectResult.mockResolvedValue([user]);
       jwtService.issueAuthData.mockResolvedValue(ret);
       vi.mocked(bcrypt.compare).mockResolvedValue(true as never);
 
@@ -57,10 +57,10 @@ describe("AuthService", () => {
     });
   });
 
-  describe("sad paths", () => {
-    it("should throw when attempting to login with an invalid password", async () => {
+  describe('sad paths', () => {
+    it('should throw when attempting to login with an invalid password', async () => {
       // arrange
-      db.select.mockResolvedValue(undefined);
+      db.selectResult.mockResolvedValue([]);
       verifyService.validateCode.mockResolvedValue(undefined);
       jwtService.issueAuthData.mockResolvedValue(ret);
       vi.mocked(bcrypt.compare).mockResolvedValue(false as never);
@@ -73,9 +73,9 @@ describe("AuthService", () => {
       expect(jwtService.issueAuthData).not.toHaveBeenCalled();
     });
 
-    it("should throw when attempting to login with an invalid email", async () => {
+    it('should throw when attempting to login with an invalid email', async () => {
       // arrange
-      db.select.mockResolvedValue(null);
+      db.selectResult.mockResolvedValue([]);
       verifyService.validateCode.mockResolvedValue(undefined);
       jwtService.issueAuthData.mockResolvedValue(ret);
 
@@ -87,7 +87,7 @@ describe("AuthService", () => {
       expect(jwtService.issueAuthData).not.toHaveBeenCalled();
     });
 
-    it("should throw when attempting to login with an invalid code", async () => {
+    it('should throw when attempting to login with an invalid code', async () => {
       // arrange
       const error = new Error();
 

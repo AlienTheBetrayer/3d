@@ -1,5 +1,5 @@
-import { Mock } from "vitest";
-import { AuthCoreService } from "../auth.service.js";
+import { Mock } from 'vitest';
+import { AuthCoreService } from '../auth.service.js';
 
 type InitMocks = {
   authCoreService: AuthCoreService;
@@ -7,6 +7,11 @@ type InitMocks = {
   db: {
     authSessions: {
       findFirst: Mock;
+    };
+    query: {
+      auth_sessions: {
+        findFirst: Mock;
+      };
     };
   };
 
@@ -16,9 +21,14 @@ type InitMocks = {
 };
 
 export const init = (): InitMocks => {
+  const authSessions = {
+    findFirst: vi.fn(),
+  };
+
   const db = {
-    authSessions: {
-      findFirst: vi.fn(),
+    authSessions,
+    query: {
+      auth_sessions: authSessions,
     },
   };
 
@@ -26,7 +36,7 @@ export const init = (): InitMocks => {
     verify: vi.fn(),
   };
 
-  const authCoreService = new AuthCoreService(db as never, jwtService as never);
+  const authCoreService = new AuthCoreService({ db } as never, jwtService as never);
 
   return {
     authCoreService,

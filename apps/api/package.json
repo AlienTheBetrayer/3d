@@ -8,10 +8,11 @@
     "dev": "nest start --watch",
     "start": "node dist/main.js",
     "lint": "oxlint -c ../../packages/oxlint-config/.oxlintrc.json",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:cov": "vitest run --coverage",
-    "test:e2e": "vitest run --config ./test/vitest.config.e2e.ts"
+    "test:prepare": "pnpm --filter @repo/db build && pnpm --filter @repo/contracts build && pnpm --filter @repo/lib build",
+    "test": "pnpm run test:prepare && vitest run",
+    "test:watch": "pnpm run test:prepare && vitest",
+    "test:cov": "pnpm run test:prepare && vitest run --coverage",
+    "test:e2e": "pnpm run test:prepare && vitest run --config ./test/vitest.config.e2e.ts"
   },
   "dependencies": {
     "@dicebear/core": "^10.7.0",

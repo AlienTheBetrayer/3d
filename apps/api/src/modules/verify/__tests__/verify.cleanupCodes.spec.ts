@@ -1,21 +1,22 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { init } from "./init.js";
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { init } from './init.js';
 
-describe("VerifyService", () => {
+describe('VerifyService', () => {
   const { verifyService, db } = init();
 
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  describe("happy paths", () => {
-    it("should return codes if found", async () => {
+  describe('happy paths', () => {
+    it('should return codes if found', async () => {
       // arrange
       const dto = {
-        email: "email@gmail.com",
+        email: 'email@gmail.com',
       };
 
-      db.verificationCodes.count.mockResolvedValue(1);
+      db.verificationCodes.findFirst.mockResolvedValue({});
+      db.deleteResult.mockResolvedValue([{}]);
 
       // act
       const result = await verifyService.cleanupCodes(dto);
@@ -25,14 +26,14 @@ describe("VerifyService", () => {
     });
   });
 
-  describe("sad paths", () => {
-    it("should return null if no codes are found", async () => {
+  describe('sad paths', () => {
+    it('should return null if no codes are found', async () => {
       // arrange
       const dto = {
-        email: "email@gmail.com",
+        email: 'email@gmail.com',
       };
 
-      db.verificationCodes.count.mockResolvedValue(0);
+      db.verificationCodes.findFirst.mockResolvedValue(null);
 
       // act
       const result = await verifyService.cleanupCodes(dto);
