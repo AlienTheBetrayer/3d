@@ -1,10 +1,10 @@
 "use client";
 
-import { defaultForm, type DefaultForm } from "@repo/forms/auth";
 import Form, { useZodForm } from "@/shared/ui/form/form";
+import { forms } from "@repo/forms";
 
 export default function FormPage() {
-  const { form } = useZodForm(defaultForm, {
+  const { form } = useZodForm(forms.auth.login, {
     defaultValues: {
       email: "",
       password: "",
@@ -12,7 +12,7 @@ export default function FormPage() {
     },
   });
 
-  const handleLogin = (values: DefaultForm) => {
+  const handleLogin = (values: forms.auth.Login) => {
     void values;
   };
 

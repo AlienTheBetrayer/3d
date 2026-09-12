@@ -7,21 +7,20 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./auth": {
-      "types": "./dist/auth/index.d.ts",
-      "import": "./dist/auth/index.js"
     }
   },
   "scripts": {
     "build": "tsc",
-    "check-types": "tsc --noEmit"
+    "dev": "tsc --watch --preserveWatchOutput",
+    "check-types": "tsc --noEmit",
+    "lint": "oxlint -c ../../packages/oxlint-config/.oxlintrc.json"
   },
   "dependencies": {
     "@repo/contracts": "workspace:*",
     "zod": "^4.5.4"
   },
   "devDependencies": {
+    "@repo/oxlint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "typescript": "^6.0.3"
   }

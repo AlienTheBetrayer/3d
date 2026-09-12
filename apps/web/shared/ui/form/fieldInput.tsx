@@ -1,9 +1,8 @@
 import { FieldValues, useFormContext, Controller, Path } from "react-hook-form";
-import type { DefaultForm } from "@repo/forms/auth";
 import { Input } from "../input";
 import { Field, FieldError, FieldLabel } from "../field";
 
-export default function FormInput<T extends FieldValues = DefaultForm>({
+export default function FormInput<T extends FieldValues>({
   name,
   label,
   ...props
