@@ -10,13 +10,10 @@ import {
   EmojiPicker,
   PopoverTrigger,
 } from "@/shared/ui";
-import { id } from "@repo/lib";
 import { useState } from "react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  console.log(id.create());
 
   return (
     <main className="w-screen h-screen grid place-items-center">
@@ -46,7 +43,10 @@ export default function Home() {
         </li>
 
         <li className="mt-4">
-          <Popover onOpenChange={setIsOpen} open={isOpen}>
+          <Popover
+            onOpenChange={setIsOpen}
+            open={isOpen}
+          >
             <PopoverTrigger render={<Button>Open emoji picker</Button>} />
             <PopoverContent className="w-fit p-0">
               <EmojiPicker

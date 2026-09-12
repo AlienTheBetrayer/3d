@@ -25,7 +25,10 @@ function EmojiPicker({ className, ...props }: React.ComponentProps<typeof EmojiP
 
 function EmojiPickerSearch({ className, ...props }: React.ComponentProps<typeof EmojiPickerPrimitive.Search>) {
   return (
-    <div className={cn("flex h-9 items-center gap-2 border-b px-3", className)} data-slot="emoji-picker-search-wrapper">
+    <div
+      className={cn("flex h-9 items-center gap-2 border-b px-3", className)}
+      data-slot="emoji-picker-search-wrapper"
+    >
       <SearchIcon className="size-4 shrink-0 opacity-50" />
       <EmojiPickerPrimitive.Search
         className="outline-hidden placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-sm disabled:cursor-not-allowed disabled:opacity-50"
@@ -38,7 +41,11 @@ function EmojiPickerSearch({ className, ...props }: React.ComponentProps<typeof 
 
 function EmojiPickerRow({ children, ...props }: EmojiPickerListRowProps) {
   return (
-    <div {...props} className="scroll-my-1 px-1" data-slot="emoji-picker-row">
+    <div
+      {...props}
+      className="scroll-my-1 px-1"
+      data-slot="emoji-picker-row"
+    >
       {children}
     </div>
   );

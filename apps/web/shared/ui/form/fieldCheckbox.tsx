@@ -1,8 +1,14 @@
-import { FieldValues, useFormContext, Controller, Path } from "react-hook-form";
+import { FieldValues, useFormContext, Controller } from "react-hook-form";
 import { Checkbox } from "../checkbox";
 import { Field, FieldError, FieldLabel } from "../field";
+import { WrapperControllerProps } from "@/shared/ui/form/types/props";
 
-export default function FormCheckbox<T extends FieldValues>({ name, label }: { name: Path<T>; label?: string }) {
+export default function FormCheckbox<T extends FieldValues>({
+  name,
+  label,
+  id,
+  ...props
+}: WrapperControllerProps<T, typeof Checkbox>) {
   const { control } = useFormContext<T>();
 
   return (
@@ -11,9 +17,15 @@ export default function FormCheckbox<T extends FieldValues>({ name, label }: { n
       control={control}
       render={({ field, fieldState }) => (
         <Field orientation="horizontal">
-          <Checkbox checked={field.value} onCheckedChange={field.onChange} aria-invalid={fieldState.invalid} />
+          <Checkbox
+            checked={field.value}
+            onCheckedChange={field.onChange}
+            aria-invalid={fieldState.invalid}
+            id={id}
+            {...props}
+          />
 
-          {label && <FieldLabel>{label}</FieldLabel>}
+          <FieldLabel htmlFor={id}>{label}</FieldLabel>
 
           <FieldError errors={[fieldState.error]} />
         </Field>
