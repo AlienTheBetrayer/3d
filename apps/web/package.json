@@ -18,7 +18,6 @@
     "@hookform/resolvers": "^5.2.2",
     "@repo/contracts": "workspace:*",
     "@repo/db": "workspace:*",
-    "@repo/forms": "workspace:*",
     "@repo/lib": "workspace:*",
     "@tailwindcss/postcss": "^4.3.3",
     "class-variance-authority": "^0.7.1",

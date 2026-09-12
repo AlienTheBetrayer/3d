@@ -19,7 +19,12 @@ export default function FormInput<T extends FieldValues>({
         <Field data-invalid={fieldState.invalid}>
           <FieldLabel htmlFor={id}>{label}</FieldLabel>
 
-          <Input {...field} {...props} id={id} aria-invalid={fieldState.invalid} />
+          <Input
+            {...field}
+            {...props}
+            id={id}
+            aria-invalid={fieldState.invalid}
+          />
 
           <FieldError errors={[fieldState.error]} />
         </Field>

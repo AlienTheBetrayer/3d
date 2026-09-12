@@ -2,18 +2,17 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/ui";
 import Form, { useZodForm } from "@/shared/ui/form/form";
-import { forms } from "@repo/forms";
+import { contracts } from "@repo/contracts";
 
 export default function FormPage() {
-  const { form } = useZodForm(forms.auth.login, {
+  const { form } = useZodForm(contracts.auth.login, {
     defaultValues: {
       email: "",
       password: "",
-      remember: false,
     },
   });
 
-  const handleLogin = (values: forms.auth.Login) => {
+  const handleLogin = (values: contracts.auth.Login) => {
     void values;
   };
 
@@ -41,12 +40,6 @@ export default function FormPage() {
               label="Password"
               type="password"
               id="password"
-            />
-            <Form.Checkbox
-              name="remember"
-              id="remember"
-              label="Remember me"
-              className="ml-auto"
             />
           </CardContent>
 

@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { contracts, shared } from "@repo/contracts";
+import { contracts } from "@repo/contracts";
 import { DrizzleService } from "../drizzle/drizzle.service.js";
 import { generateVerificationEmail } from "../mail/lib/constants.js";
 import { MailService } from "../mail/mail.service.js";
@@ -7,6 +7,7 @@ import { id, random } from "@repo/lib";
 import { db } from "@repo/db";
 import { and, eq, gte } from "drizzle-orm";
 import { Exception } from "../../shared/lib/exception.js";
+import { config } from "@repo/config";
 
 @Injectable()
 export class VerifyService {
@@ -26,10 +27,10 @@ export class VerifyService {
       .insert(db.verification_codes)
       .values({
         id: id.create(),
-        code: random.string(shared.code.length, "0123456789"),
+        code: random.string(config.auth.code.length, "0123456789"),
         email: params.email,
         type: params.type,
-        expiry_at: new Date(Date.now() + shared.code.expiryMs),
+        expiry_at: new Date(Date.now() + config.auth.code.expiryMs),
       })
       .returning();
 

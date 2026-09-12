@@ -1,9 +1,7 @@
+import { config } from "@repo/config";
 import z from "zod";
 
 /**
  * schemas
  */
-export const connectionGroups = {
-  title: z.string().min(1).max(128),
-  emoji: z.emoji(),
-};
+export const title = z.string().min(config.connectionGroups.title.min).max(config.connectionGroups.title.max);

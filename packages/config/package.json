@@ -1,5 +1,5 @@
 {
-  "name": "@repo/forms",
+  "name": "@repo/config",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -16,12 +16,13 @@
     "lint": "oxlint -c ../../packages/oxlint-config/.oxlintrc.json"
   },
   "dependencies": {
-    "@repo/contracts": "workspace:*",
-    "zod": "^4.5.4"
+    "drizzle-orm": "^0.45.2",
+    "drizzle-zod": "^0.8.3",
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@repo/oxlint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "typescript": "^6.0.3"
+    "typescript": "^5.0.0"
   }
 }

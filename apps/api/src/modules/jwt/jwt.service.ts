@@ -14,6 +14,7 @@ import { id, random } from "@repo/lib";
 import { db } from "@repo/db";
 import { eq } from "drizzle-orm";
 import { Exception } from "../../shared/lib/exception.js";
+import { config } from "@repo/config";
 
 @Injectable()
 export class AppJwtService {
@@ -114,13 +115,13 @@ export class AppJwtService {
     // signing tokens
     const accessToken = this.sign({
       payload: params.payload,
-      expiryMs: shared.accessToken.expiryMs,
+      expiryMs: config.auth.accessToken.expiryMs,
       envKey: "ACCESS_TOKEN_SECRET",
     });
 
     const refreshToken = this.sign({
       payload: params.payload,
-      expiryMs: shared.refreshToken.expiryMs,
+      expiryMs: config.auth.refreshToken.expiryMs,
       envKey: "REFRESH_TOKEN_SECRET",
     });
 
@@ -145,7 +146,7 @@ export class AppJwtService {
         id: id.create(),
         user_id: params.userId,
         refresh_token_hash: "",
-        expiry_at: new Date(Date.now() + shared.refreshToken.expiryMs),
+        expiry_at: new Date(Date.now() + config.auth.refreshToken.expiryMs),
       })
       .returning();
 
@@ -161,13 +162,13 @@ export class AppJwtService {
 
     const accessToken = this.sign({
       payload,
-      expiryMs: shared.accessToken.expiryMs,
+      expiryMs: config.auth.accessToken.expiryMs,
       envKey: "ACCESS_TOKEN_SECRET",
     });
 
     const refreshToken = this.sign({
       payload,
-      expiryMs: shared.refreshToken.expiryMs,
+      expiryMs: config.auth.refreshToken.expiryMs,
       envKey: "REFRESH_TOKEN_SECRET",
     });
 
@@ -254,7 +255,7 @@ export class AppJwtService {
     this.setHttpCookie({
       name: "accessToken",
       token: params.accessToken,
-      expiryMs: shared.accessToken.expiryMs,
+      expiryMs: config.auth.accessToken.expiryMs,
       response: params.response,
     });
 
@@ -262,7 +263,7 @@ export class AppJwtService {
     this.setHttpCookie({
       name: "refreshToken",
       token: params.refreshToken,
-      expiryMs: shared.refreshToken.expiryMs,
+      expiryMs: config.auth.refreshToken.expiryMs,
       response: params.response,
     });
   }

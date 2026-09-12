@@ -1,12 +1,12 @@
 import { db } from "@repo/db";
 import z from "zod";
-import { connectionGroups } from "../../shared/connection-groups.js";
+import { title } from "../../shared/connection-groups.js";
 
 export const create = z.object({
   groupId: z.nanoid().optional(),
   connectionId: z.nanoid().optional(),
-  title: connectionGroups.title,
-  emoji: connectionGroups.emoji,
+  title: title,
+  emoji: z.emoji(),
 });
 
 export type Create = z.infer<typeof create>;
